@@ -1,5 +1,7 @@
 # Portifólio
 
+🔗 **Site ao vivo:** https://erikhko.github.io/Portifolio/
+
 Site portfólio pessoal de **Erik Ko**, com foco em AI Engineering. Página única, tema dark com visual tech e efeitos em azul, feita apenas com HTML, CSS e JavaScript puros (sem frameworks e sem etapa de build).
 
 ## Funcionalidades
@@ -33,7 +35,7 @@ Portifolio/
 
 ## Como executar
 
-Não há dependências nem build. Clone o repositório e abra o `index.html` no navegador:
+O site está online no link acima. Para rodar localmente, não há dependências nem build. Clone o repositório e abra o `index.html` no navegador:
 
 ```bash
 git clone https://github.com/erikhko/Portifolio.git
@@ -59,6 +61,7 @@ As fontes vêm do Google Fonts, então é necessário ter conexão com a interne
 13. **Redirecionamento para AI Engineering:** o cargo passou a AI Engineering, com Prompt Engineering e Automação com IA em destaque logo abaixo (o efeito de digitação foi removido), nova frase de apoio, texto do Sobre mim reescrito e habilidades atualizadas.
 14. **Projetos:** ficou apenas o To-Do List API (Python, FastAPI, SQLAlchemy, SQLite e Docker), mais um card "Em desenvolvimento". Com menos de 3 projetos o carrossel não gira.
 15. **Acabamento:** foto em moldura circular e botões de contato que mostram o link embaixo em vez de abrir direto.
+16. **Publicação online:** site publicado com GitHub Pages, a partir da branch `main`.
 
 ## O que foi verificado
 
@@ -75,7 +78,6 @@ Testes feitos no navegador Brave, com telas simuladas:
 ## Pendências e próximos passos
 
 - Adicionar projetos de IA (Python, automação, integração com LLMs) conforme forem sendo desenvolvidos, substituindo o card "Em desenvolvimento".
-- Publicar o site online (GitHub Pages) e acrescentar o link neste README.
 
 ## Contato
 
