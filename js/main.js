@@ -40,6 +40,9 @@ const next = carousel.querySelector(".carousel-btn.next");
 const dotsBox = document.querySelector(".carousel-dots");
 const originals = [...track.querySelectorAll(".card")];
 const total = originals.length;
+// Com 1 ou 2 projetos tudo cabe na tela, não há o que girar: os cards ficam estáticos
+if (total < 3) carousel.classList.add("single");
+if (total > 2) {
 
 const SPEED = 40; // px por segundo — menor = mais lento
 
@@ -151,27 +154,114 @@ window.addEventListener("resize", () => { build(); pos = pos % setWidth; });
 
 build();
 requestAnimationFrame(frame);
-
-// Efeito de digitação
-const typed = document.querySelector(".typed");
-const words = JSON.parse(typed.dataset.words);
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-if (reduceMotion) {
-  typed.textContent = words[0];
-} else {
-  let w = 0, c = 0, deleting = false;
-  const tick = () => {
-    const word = words[w];
-    c += deleting ? -1 : 1;
-    typed.textContent = word.slice(0, c);
-    let delay = deleting ? 60 : 110;
-    if (!deleting && c === word.length) { deleting = true; delay = 1500; }
-    else if (deleting && c === 0) { deleting = false; w = (w + 1) % words.length; delay = 400; }
-    setTimeout(tick, delay);
-  };
-  tick();
 }
 
 // Ano no rodapé
 document.getElementById("ano").textContent = new Date().getFullYear();
+
+// Fundo animado do Hero: rede de nós e símbolos de TI (decorativo)
+(() => {
+  const wrap = document.querySelector(".hero-wrap");
+  const cv = wrap.querySelector(".hero-canvas");
+  const ctx = cv.getContext("2d");
+  const WORDS = ["0", "1", "</>", "{ }", "SQL", "py", "BI", "01", "=>", "[ ]", "API", "git"];
+  const LINK = 130;
+  let W, H, nodes = [], tokens = [], visible = true, running = false;
+
+  const rnd = (a, b) => a + Math.random() * (b - a);
+
+  function setup() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = wrap.clientWidth;
+    H = wrap.clientHeight;
+    cv.width = W * dpr;
+    cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.min(70, Math.floor((W * H) / 16000));
+    nodes = Array.from({ length: n }, () => ({
+      x: rnd(0, W), y: rnd(0, H), vx: rnd(-0.22, 0.22), vy: rnd(-0.22, 0.22), r: rnd(1, 2.4),
+    }));
+    tokens = Array.from({ length: Math.min(16, Math.floor(W / 90)) }, () => ({
+      x: rnd(0, W), y: rnd(0, H), vy: -rnd(0.12, 0.35), a: rnd(0.1, 0.28),
+      s: rnd(12, 18), t: WORDS[Math.floor(Math.random() * WORDS.length)],
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of nodes) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+    ctx.lineWidth = 1;
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const d = Math.hypot(dx, dy);
+        if (d < LINK) {
+          ctx.strokeStyle = `rgba(96,165,250,${(1 - d / LINK) * 0.35})`;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.fillStyle = "rgba(96,165,250,0.75)";
+    for (const p of nodes) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    for (const k of tokens) {
+      k.y += k.vy;
+      if (k.y < -20) { k.y = H + 20; k.x = rnd(0, W); }
+      ctx.font = `${k.s}px "JetBrains Mono", monospace`;
+      ctx.fillStyle = `rgba(56,189,248,${k.a})`;
+      ctx.fillText(k.t, k.x, k.y);
+    }
+  }
+
+  function loop() {
+    if (!visible) { running = false; return; }
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (visible && !running) { running = true; requestAnimationFrame(loop); }
+  }).observe(wrap);
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setup, 150);
+  });
+
+  setup();
+})();
+
+// Contato: o botão seleciona e mostra o link abaixo (não abre sozinho)
+(() => {
+  const buttons = document.querySelectorAll(".contact-links .btn");
+  const info = document.querySelector(".contact-info");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      const link = document.createElement("a");
+      link.href = btn.dataset.href;
+      link.textContent = btn.dataset.text;
+      if (btn.dataset.external) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+      info.replaceChildren(link);
+    });
+  });
+})();
