@@ -1,6 +1,6 @@
 # Portifólio
 
-🔗 **Site ao vivo:** https://erikhko.github.io/Portifolio/
+🔗 **Site ao vivo:** https://erikhko.github.io/Portfolio/
 
 Site portfólio pessoal de **Erik Ko**, com foco em AI Engineering. Página única, tema dark com visual tech e efeitos em azul, feita apenas com HTML, CSS e JavaScript puros (sem frameworks e sem etapa de build).
 
@@ -24,7 +24,7 @@ Site portfólio pessoal de **Erik Ko**, com foco em AI Engineering. Página úni
 ## Estrutura do projeto
 
 ```
-Portifolio/
+Portfolio/
 ├── index.html        # Estrutura da página
 ├── css/style.css     # Tema dark, efeitos em azul e responsividade
 ├── js/main.js        # Menu, animações, carrossel, fundo animado e contato
@@ -38,8 +38,8 @@ Portifolio/
 O site está online no link acima. Para rodar localmente, não há dependências nem build. Clone o repositório e abra o `index.html` no navegador:
 
 ```bash
-git clone https://github.com/erikhko/Portifolio.git
-cd Portifolio
+git clone https://github.com/erikhko/Portfolio.git
+cd Portfolio
 ```
 
 As fontes vêm do Google Fonts, então é necessário ter conexão com a internet para vê-las.

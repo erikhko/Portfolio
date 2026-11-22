@@ -1,8 +1,8 @@
-# CLAUDE.md — Portifolio
+# CLAUDE.md — Portfolio
 
 ## Visão geral
-- **Projeto:** Portifolio — site portfólio pessoal.
-- **Raiz do projeto:** `C:\Users\Erik\Documents\Projetos\Portifolio`
+- **Projeto:** Portfolio — site portfólio pessoal.
+- **Raiz do projeto:** `C:\Users\Erik\Documents\Projetos\Portfolio`
 - **Plataforma:** Windows 11 (PowerShell como shell principal).
 - Trabalhe sempre dentro da pasta raiz. Não leia nem altere arquivos fora dela sem permissão.
 
@@ -55,7 +55,7 @@ Leitura de arquivos e análise (somente leitura) podem ser feitas livremente par
 A pasta está vazia por enquanto. A estrutura e a stack ainda serão definidas — **pergunte-me** antes de escolher tecnologias (HTML/CSS/JS puro, React, Next.js, etc.) e atualize esta seção quando a estrutura existir.
 
 ```
-Portifolio/
+Portfolio/
 └── CLAUDE.md
 ```
 
