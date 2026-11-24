@@ -1,4 +1,4 @@
-# Portifólio
+# Portfólio
 
 🔗 **Site ao vivo:** https://erikhko.github.io/Portfolio/
 
@@ -8,7 +8,7 @@ Site portfólio pessoal de **Erik Ko**, com foco em AI Engineering. Página úni
 
 - **Hero** com apresentação, cargo (AI Engineering, com Prompt Engineering e Automação com IA logo abaixo) e fundo animado em canvas, com rede de pontos e símbolos de TI.
 - **Sobre mim** com texto de apresentação e foto de perfil em moldura circular.
-- **Projetos** em cards, incluindo um card "Em desenvolvimento" que indica que um novo projeto está a caminho. O carrossel (rotação automática e contínua, loop infinito, setas, indicadores e botão de pausa) entra em ação a partir de 3 projetos; com 1 ou 2, os cards ficam estáticos.
+- **Projetos** em cards: To-Do List API e InfoTech, mais um card "Em desenvolvimento" que fica sempre por último, indicando que novos projetos estão a caminho. O carrossel (rotação automática e contínua, loop infinito, setas, indicadores e botão de pausa) entra em ação a partir de 3 projetos, que é o caso atual.
 - **Habilidades** em grade: Python, Automação com IA, Prompt Engineering e Git & GitHub.
 - **Contato** com botões de E-mail, LinkedIn e GitHub. Ao clicar, o botão fica selecionado e o link aparece embaixo, sem abrir nada automaticamente.
 - **Menu responsivo** com versão hambúrguer para telas pequenas.
@@ -62,6 +62,7 @@ As fontes vêm do Google Fonts, então é necessário ter conexão com a interne
 14. **Projetos:** ficou apenas o To-Do List API (Python, FastAPI, SQLAlchemy, SQLite e Docker), mais um card "Em desenvolvimento". Com menos de 3 projetos o carrossel não gira.
 15. **Acabamento:** foto em moldura circular e botões de contato que mostram o link embaixo em vez de abrir direto.
 16. **Publicação online:** site publicado com GitHub Pages, a partir da branch `main`.
+17. **Novo projeto:** adicionado o card InfoTech (landing page de loja fictícia de hardware, em HTML, CSS e JavaScript puros), com links para o GitHub e para a demo no GitHub Pages. O card "Em desenvolvimento" continua sempre por último.
 
 ## O que foi verificado
 
@@ -69,15 +70,15 @@ Testes feitos no navegador Brave, com telas simuladas:
 
 - Sem barra de rolagem horizontal em 320, 360, 390, 768, 1024 e 1440 px (etapa de responsividade). As mudanças posteriores foram conferidas em 360 e entre 1280 e 1440 px.
 - Menu hambúrguer abre e exibe todos os links.
-- O carrossel avançava de forma contínua, a cerca de 40 px/s, quando havia 5 projetos. Hoje ele está inativo, porque há menos de 3 cards.
+- O carrossel avançava de forma contínua, a cerca de 40 px/s, quando havia 5 projetos. Com os 3 cards atuais, o carrossel não foi verificado.
 - O fundo animado é desenhado no Hero em desktop e celular, sem erros de JavaScript.
 - Botões de contato: ao clicar, o botão é selecionado, o link muda e nenhuma aba é aberta.
 
-**Não verificado:** funcionamento em aparelhos reais, no Safari, no Firefox e no navegador do Cursor; o clique nas setas, nas bolinhas e no botão de pausa do carrossel; e o desempenho do fundo animado em celulares mais simples.
+**Não verificado:** funcionamento em aparelhos reais, no Safari, no Firefox e no navegador do Cursor; o clique nas setas, nas bolinhas e no botão de pausa do carrossel; o desempenho do fundo animado em celulares mais simples; e a conferência visual do card InfoTech no navegador.
 
 ## Pendências e próximos passos
 
-- Adicionar projetos de IA (Python, automação, integração com LLMs) conforme forem sendo desenvolvidos, substituindo o card "Em desenvolvimento".
+- Adicionar novos projetos de IA (Python, automação, integração com LLMs) conforme forem desenvolvidos, mantendo o card "Em desenvolvimento" sempre por último.
 
 ## Contato
 
