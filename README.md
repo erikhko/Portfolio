@@ -70,11 +70,11 @@ Testes feitos no navegador Brave, com telas simuladas:
 
 - Sem barra de rolagem horizontal em 320, 360, 390, 768, 1024 e 1440 px (etapa de responsividade). As mudanças posteriores foram conferidas em 360 e entre 1280 e 1440 px.
 - Menu hambúrguer abre e exibe todos os links.
-- O carrossel avançava de forma contínua, a cerca de 40 px/s, quando havia 5 projetos. Com os 3 cards atuais, o carrossel não foi verificado.
+- O carrossel avançava de forma contínua, a cerca de 40 px/s, quando havia 5 projetos. Com os 3 cards atuais, o carrossel e o card InfoTech foram conferidos pelo autor no site publicado e funcionam.
 - O fundo animado é desenhado no Hero em desktop e celular, sem erros de JavaScript.
 - Botões de contato: ao clicar, o botão é selecionado, o link muda e nenhuma aba é aberta.
 
-**Não verificado:** funcionamento em aparelhos reais, no Safari, no Firefox e no navegador do Cursor; o clique nas setas, nas bolinhas e no botão de pausa do carrossel; o desempenho do fundo animado em celulares mais simples; e a conferência visual do card InfoTech no navegador.
+**Não verificado:** funcionamento em aparelhos reais, no Safari, no Firefox e no navegador do Cursor; o clique nas setas, nas bolinhas e no botão de pausa do carrossel; o desempenho do fundo animado em celulares mais simples.
 
 ## Pendências e próximos passos
 
